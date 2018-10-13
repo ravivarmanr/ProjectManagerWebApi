@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CBCCCE98-474B-4CB9-BBAB-A153088E46F4}</ProjectGuid>
+    <ProjectGuid>{27D006FE-3653-4939-8B16-8072C2E83CA7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectManager.BusinessLayer</RootNamespace>
-    <AssemblyName>ProjectManager.BusinessLayer</AssemblyName>
+    <RootNamespace>ProjectManager.Entity</RootNamespace>
+    <AssemblyName>ProjectManager.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,19 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IProjectManagerBL.cs" />
-    <Compile Include="ProjectManagerBL.cs" />
+    <Compile Include="ParentTaskEntity.cs" />
+    <Compile Include="ProjectEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjectManager.DataLayer\ProjectManager.DataLayer.csproj">
-      <Project>{eddbf424-8c77-48ec-a7d4-2e77e73180a3}</Project>
-      <Name>ProjectManager.DataLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjectManager.Entity\ProjectManager.Entity.csproj">
-      <Project>{27d006fe-3653-4939-8b16-8072c2e83ca7}</Project>
-      <Name>ProjectManager.Entity</Name>
-    </ProjectReference>
+    <Compile Include="TaskEntity.cs" />
+    <Compile Include="UserEntity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
