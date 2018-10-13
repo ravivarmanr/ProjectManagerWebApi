@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProjectManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProjectManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ParentTask">
           <Key>
             <PropertyRef Name="ParentId" />
@@ -40,6 +40,7 @@
           <Property Name="StartDate" Type="datetime" />
           <Property Name="EndDate" Type="datetime" />
           <Property Name="TaskStatus" Type="char" MaxLength="1" />
+          <Property Name="ProjectId" Type="int" />
           <Property Name="ParentId" Type="int" />
           <Property Name="UserId" Type="int" />
           <Property Name="AddDate" Type="datetime" />
@@ -63,8 +64,7 @@
           <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProjectManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -107,6 +107,7 @@
           <Property Name="UserId" Type="Int32" />
           <Property Name="AddDate" Type="DateTime" Precision="3" />
           <Property Name="UpdtDate" Type="DateTime" Precision="3" />
+          <Property Name="ProjectId" Type="Int32" />
         </EntityType>
         <EntityType Name="UserData">
           <Key>
@@ -162,6 +163,7 @@
           <EntitySetMapping Name="Tasks">
             <EntityTypeMapping TypeName="ProjectManagerModel.Task">
               <MappingFragment StoreEntitySet="Task">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
                 <ScalarProperty Name="TaskId" ColumnName="TaskId" />
                 <ScalarProperty Name="Task1" ColumnName="Task" />
                 <ScalarProperty Name="TaskPriority" ColumnName="TaskPriority" />

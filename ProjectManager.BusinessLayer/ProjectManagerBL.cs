@@ -22,11 +22,6 @@ namespace ProjectManager.BusinessLayer
             _projDL.AddUser(user);
         }
 
-        public List<UserEntity> GetAllUsers()
-        {
-            return _projDL.GetAllUsers();
-        }
-
         public UserEntity GetUser(int userId)
         {
             return _projDL.GetUser(userId);
@@ -37,5 +32,62 @@ namespace ProjectManager.BusinessLayer
             _projDL.UpdateUser(user);
         }
 
+        public List<UserEntity> GetAllUsers()
+        {
+            return _projDL.GetAllUsers();
+        }
+
+
+        public void AddProject(ProjectEntity project)
+        {
+            _projDL.AddProject(project);
+        }
+
+        public ProjectEntity GetProject(int projectId)
+        {
+            return _projDL.GetProject(projectId);
+        }
+
+        public void UpdateProject(ProjectEntity project)
+        {
+            _projDL.UpdateProject(project);
+        }
+
+        public List<ProjectEntity> GetAllProjects()
+        {
+            return _projDL.GetAllProjects();
+        }
+
+
+        public void AddParentTask(ParentTaskEntity parentTask)
+        {
+            _projDL.AddParentTask(parentTask);
+        }
+
+
+        public void AddTask(TaskEntity task)
+        {
+            _projDL.AddTask(task);
+        }
+
+        public TaskEntity GetTask(int taskId)
+        {
+            return _projDL.GetTask(taskId);
+        }
+
+        public void UpdateTask(TaskEntity task)
+        {
+            _projDL.UpdateTask(task);
+        }
+
+        public List<TaskEntity> GetAllTasks()
+        {
+            return _projDL.GetAllTasks();
+        }
+
+        public void EndTask(int taskId)
+        {
+            _projDL.EndTask(taskId);
+        }
     }
 }

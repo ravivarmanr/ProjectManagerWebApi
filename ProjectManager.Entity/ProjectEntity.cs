@@ -18,6 +18,9 @@ namespace ProjectManager.Entity
         public string ProjectStatus { get; set; }
         public Nullable<System.DateTime> AddDate { get; set; }
         public Nullable<System.DateTime> UpdtDate { get; set; }
+
         public string ManagerName { get; set; }
+        public int taskCount { get; set; }
+        public int completedTasks { get; set; }
     }
 }

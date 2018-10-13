@@ -16,6 +16,28 @@ namespace ProjectManager.BusinessLayer
         void UpdateUser(UserEntity user);
 
         List<UserEntity> GetAllUsers();
-        
+
+
+        void AddProject(ProjectEntity project);
+
+        ProjectEntity GetProject(int projectId);
+
+        void UpdateProject(ProjectEntity project);
+
+        List<ProjectEntity> GetAllProjects();
+
+
+        void AddParentTask(ParentTaskEntity parentTask);
+
+
+        void AddTask(TaskEntity task);
+
+        TaskEntity GetTask(int taskId);
+
+        void UpdateTask(TaskEntity task);
+
+        List<TaskEntity> GetAllTasks();
+
+        void EndTask(int taskId);
     }
 }

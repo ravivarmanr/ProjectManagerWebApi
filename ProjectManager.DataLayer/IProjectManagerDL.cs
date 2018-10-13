@@ -17,8 +17,28 @@ namespace ProjectManager.DataLayer
 
         List<UserEntity> GetAllUsers();
 
+
+        void AddProject(ProjectEntity project);
+
+        ProjectEntity GetProject(int projectId);
+
+        void UpdateProject(ProjectEntity project);
+
         List<ProjectEntity> GetAllProjects();
 
-        ProjectEntity GetProject(int projId);
+
+        void AddParentTask(ParentTaskEntity parentTask);
+
+
+        void AddTask(TaskEntity task);
+
+        TaskEntity GetTask(int taskId);
+
+        void UpdateTask(TaskEntity task);
+
+        List<TaskEntity> GetAllTasks();
+
+        void EndTask(int taskId);
+
     }
 }

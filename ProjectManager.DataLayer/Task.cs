@@ -24,5 +24,6 @@ namespace ProjectManager.DataLayer
         public Nullable<int> UserId { get; set; }
         public Nullable<System.DateTime> AddDate { get; set; }
         public Nullable<System.DateTime> UpdtDate { get; set; }
+        public Nullable<int> ProjectId { get; set; }
     }
 }

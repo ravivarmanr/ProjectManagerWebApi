@@ -9,7 +9,7 @@ namespace ProjectManager.Entity
     public class ParentTaskEntity
     {
         public int ParentId { get; set; }
-        public string ParentTask1 { get; set; }
+        public string ParentTask { get; set; }
         public string ParentStatus { get; set; }
         public Nullable<System.DateTime> AddDate { get; set; }
         public Nullable<System.DateTime> UpdtDate { get; set; }
