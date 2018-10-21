@@ -19,11 +19,6 @@ namespace ProjectManager.API.Controllers
             _ProjectManagerService = ProjectManagerService;
         }
 
-        //[HttpGet]
-        //public IHttpActionResult Get()
-        //{
-        //    return Ok();
-        //}
 
         [Route("AddUser")]
         public IHttpActionResult AddUser([FromBody]UserEntity user)
@@ -40,6 +35,7 @@ namespace ProjectManager.API.Controllers
         }
 
         [Route("UpdateUser")]
+        [HttpPut]
         public IHttpActionResult UpdateUser([FromBody]UserEntity user)
         {
             _ProjectManagerService.UpdateUser(user);
@@ -68,6 +64,7 @@ namespace ProjectManager.API.Controllers
         }
 
         [Route("UpdateProject")]
+        [HttpPut]
         public IHttpActionResult UpdateProject([FromBody]ProjectEntity project)
         {
             _ProjectManagerService.UpdateProject(project);
@@ -105,6 +102,7 @@ namespace ProjectManager.API.Controllers
         }
 
         [Route("UpdateTask")]
+        [HttpPut]
         public IHttpActionResult UpdateTask([FromBody]TaskEntity task)
         {
             _ProjectManagerService.UpdateTask(task);
@@ -119,6 +117,7 @@ namespace ProjectManager.API.Controllers
         }
         
         [Route("EndTask/{taskId}")]
+        [HttpPut]
         public IHttpActionResult EndTask(int taskId)
         {
             _ProjectManagerService.EndTask(taskId);

@@ -28,8 +28,10 @@ namespace ProjectManager.DataLayer
             userParam.LastName = user.LastName;
             userParam.EmpId = user.EmpId;
             userParam.UserStatus = user.UserStatus;
-            userParam.AddDate = user.AddDate;
-            userParam.UpdtDate = user.UpdtDate;
+            //userParam.AddDate = user.AddDate;
+            //userParam.UpdtDate = user.UpdtDate;
+            userParam.AddDate = DateTime.Now;
+            userParam.UpdtDate = DateTime.Now;
 
             _DBContext.UserDatas.Add(userParam);
             _DBContext.SaveChanges();
@@ -77,6 +79,7 @@ namespace ProjectManager.DataLayer
         public List<UserEntity> GetAllUsers()
         {
             var user = (from u in _DBContext.UserDatas
+                        where u.UserStatus == "Y"
                         select new UserEntity
                         {
                             UserId = u.UserId,
