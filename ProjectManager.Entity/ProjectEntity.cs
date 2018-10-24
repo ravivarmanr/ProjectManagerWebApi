@@ -20,7 +20,7 @@ namespace ProjectManager.Entity
         public Nullable<System.DateTime> UpdtDate { get; set; }
 
         public string ManagerName { get; set; }
-        public int taskCount { get; set; }
-        public int completedTasks { get; set; }
+        public int TaskCount { get; set; }
+        public int CompletedTasks { get; set; }
     }
 }

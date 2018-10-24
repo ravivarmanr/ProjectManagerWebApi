@@ -105,6 +105,7 @@ namespace ProjectManager.DataLayer
             projParam.DateReqd = project.DateReqd;
             projParam.StartDate = project.StartDate;
             projParam.EndDate = project.EndDate;
+            projParam.ManagerId = project.ManagerId;
             projParam.ProjectStatus = project.ProjectStatus;
             projParam.AddDate = project.AddDate;
             projParam.UpdtDate = project.UpdtDate;
@@ -144,12 +145,13 @@ namespace ProjectManager.DataLayer
                              where p.ProjectId == project.ProjectId
                              select p).FirstOrDefault();
 
-            projParam.ProjectId = project.ProjectId;
+            //projParam.ProjectId = project.ProjectId;
             projParam.ProjectName = project.ProjectName;
             projParam.ProjectPriority = project.ProjectPriority;
             projParam.DateReqd = project.DateReqd;
             projParam.StartDate = project.StartDate;
             projParam.EndDate = project.EndDate;
+            projParam.ManagerId = project.ManagerId;
             projParam.ProjectStatus = project.ProjectStatus;
             //projParam.AddDate = project.AddDate;
             projParam.UpdtDate = project.UpdtDate;
@@ -175,7 +177,9 @@ namespace ProjectManager.DataLayer
                                EndDate = p.EndDate,
                                ProjectStatus = p.ProjectStatus,
                                ManagerId = p.ManagerId,
-                               ManagerName = tProj.FirstName + " " + tProj.LastName
+                               ManagerName = tProj.FirstName + " " + tProj.LastName,
+                               TaskCount = (from t in _DBContext.Tasks where t.ProjectId == p.ProjectId select t).Count(),
+                               CompletedTasks = (from t in _DBContext.Tasks where t.ProjectId == p.ProjectId && t.TaskStatus == "N" select t).Count()
                            }
                            ).ToList();
 
