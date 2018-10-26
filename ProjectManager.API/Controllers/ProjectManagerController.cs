@@ -86,6 +86,13 @@ namespace ProjectManager.API.Controllers
             return Ok();
         }
 
+        [Route("GetAllParentTasks")]
+        public IHttpActionResult GetAllParentTasks()
+        {
+            var allTasks = _ProjectManagerService.GetAllParentTasks();
+            return Ok(allTasks);
+        }
+
 
         [Route("AddTask")]
         public IHttpActionResult AddTask([FromBody]TaskEntity task)

@@ -64,6 +64,10 @@ namespace ProjectManager.BusinessLayer
             _projDL.AddParentTask(parentTask);
         }
 
+        public List<ParentTaskEntity> GetAllParentTasks()
+        {
+            return _projDL.GetAllParentTasks();
+        }
 
         public void AddTask(TaskEntity task)
         {

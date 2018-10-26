@@ -29,6 +29,7 @@ namespace ProjectManager.BusinessLayer
 
         void AddParentTask(ParentTaskEntity parentTask);
 
+        List<ParentTaskEntity> GetAllParentTasks();
 
         void AddTask(TaskEntity task);
 

@@ -200,6 +200,23 @@ namespace ProjectManager.DataLayer
         }
 
 
+        public List<ParentTaskEntity> GetAllParentTasks()
+        {
+            var allParent = (from p in _DBContext.ParentTasks
+                             where p.ParentStatus == "Y"
+                             select new ParentTaskEntity
+                             {
+
+                                 ParentId = p.ParentId,
+                                 ParentTask = p.ParentTask1,
+                                 ParentStatus = p.ParentStatus,
+                                 AddDate = p.AddDate,
+                                 UpdtDate = p.UpdtDate
+                             }).ToList();
+
+            return allParent;
+        }
+
         public void AddTask(TaskEntity task)
         {
             var taskParam = new Task();
