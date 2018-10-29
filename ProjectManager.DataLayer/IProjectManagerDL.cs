@@ -42,5 +42,6 @@ namespace ProjectManager.DataLayer
 
         void EndTask(int taskId);
 
+        List<TaskEntity> GetAllTasks(int projectId);
     }
 }

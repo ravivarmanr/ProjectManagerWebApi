@@ -122,7 +122,15 @@ namespace ProjectManager.API.Controllers
             var allTasks = _ProjectManagerService.GetAllTasks();
             return Ok(allTasks);
         }
-        
+
+        [Route("getTaskListByProjId/{projectId}")]
+        public IHttpActionResult getTaskListByProjId(int projectId)
+        {
+
+            var allTasks = _ProjectManagerService.GetAllTasks(projectId);
+            return Ok(allTasks);
+        }
+
         [Route("EndTask/{taskId}")]
         [HttpPut]
         public IHttpActionResult EndTask(int taskId)

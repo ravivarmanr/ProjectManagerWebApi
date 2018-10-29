@@ -40,5 +40,6 @@ namespace ProjectManager.BusinessLayer
         List<TaskEntity> GetAllTasks();
 
         void EndTask(int taskId);
+        List<TaskEntity> GetAllTasks(int projectId);
     }
 }

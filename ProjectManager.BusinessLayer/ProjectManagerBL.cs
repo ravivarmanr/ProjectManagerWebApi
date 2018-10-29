@@ -93,5 +93,10 @@ namespace ProjectManager.BusinessLayer
         {
             _projDL.EndTask(taskId);
         }
+
+        public List<TaskEntity> GetAllTasks(int projectId)
+        {
+            return _projDL.GetAllTasks(projectId);
+        }
     }
 }

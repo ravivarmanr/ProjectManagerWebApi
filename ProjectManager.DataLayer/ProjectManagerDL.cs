@@ -190,13 +190,16 @@ namespace ProjectManager.DataLayer
         public void AddParentTask(ParentTaskEntity parentTask)
         {
             var parentTaskParam = new ParentTask();
-            var parentTaskId = -_DBContext.ParentTasks.Max(p => p.ParentId) + 1;
+            var parentTaskId = _DBContext.ParentTasks.Max(p => p.ParentId) + 1;
 
             parentTaskParam.ParentId = parentTaskId;
             parentTaskParam.ParentTask1 = parentTask.ParentTask;
             parentTaskParam.ParentStatus = parentTask.ParentStatus;
             parentTaskParam.AddDate = parentTask.AddDate;
             parentTaskParam.UpdtDate = parentTask.UpdtDate;
+
+            _DBContext.ParentTasks.Add(parentTaskParam);
+            _DBContext.SaveChanges();
         }
 
 
@@ -333,5 +336,36 @@ namespace ProjectManager.DataLayer
 
             _DBContext.SaveChanges();
         }
+
+        public List<TaskEntity> GetAllTasks(int projectId)
+        {
+            var allTaskList = (from t in _DBContext.Tasks
+                               where t.ProjectId == projectId
+                               join p in _DBContext.ParentTasks on t.ParentId equals p.ParentId
+                               join u in _DBContext.UserDatas on t.UserId equals u.UserId
+                               into projTask
+                               from ptask in projTask.DefaultIfEmpty()
+
+                               select new TaskEntity
+                               {
+                                   TaskId = t.TaskId,
+                                   Task = t.Task1,
+                                   TaskPriority = t.TaskPriority,
+                                   StartDate = t.StartDate,
+                                   EndDate = t.EndDate,
+                                   TaskStatus = t.TaskStatus,
+                                   ProjectId = t.ProjectId,
+                                   ParentId = t.ParentId,
+                                   UserId = t.UserId,
+                                   AddDate = t.AddDate,
+                                   UpdtDate = t.UpdtDate,
+                                   ParentTask = p.ParentTask1,
+                                   UserName = ptask.FirstName + " " + ptask.LastName
+
+                               }).ToList();
+
+            return allTaskList;
+        }
+
     }
 }
