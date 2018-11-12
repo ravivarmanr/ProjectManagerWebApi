@@ -22,6 +22,7 @@ namespace ProjectManager.Entity
 
         public string ParentTask { get; set; }
         public string UserName { get; set; }
+        public string ProjectName { get; set; }
 
     }
 }
