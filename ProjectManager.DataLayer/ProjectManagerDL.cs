@@ -71,7 +71,7 @@ namespace ProjectManager.DataLayer
             userParam.UserId = user.UserId;
             userParam.FirstName = user.FirstName;
             userParam.LastName = user.LastName;
-            userParam.EmpId = user.EmpId;
+            //userParam.EmpId = user.EmpId;
             userParam.UserStatus = user.UserStatus;
             //userParam.AddDate = user.AddDate;
             userParam.UpdtDate = user.UpdtDate;
@@ -169,6 +169,7 @@ namespace ProjectManager.DataLayer
         public List<ProjectEntity> GetAllProjects()
         {
             var allProjects = (from p in _DBContext.Projects
+                               where p.ProjectStatus == "Y"
                                join u in _DBContext.UserDatas on p.ManagerId equals u.UserId
                                into proj
                                from tProj in proj.DefaultIfEmpty()

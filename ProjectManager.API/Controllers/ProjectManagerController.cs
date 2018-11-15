@@ -10,6 +10,7 @@ using ProjectManager.Entity;
 
 namespace ProjectManager.API.Controllers
 {
+    //[RoutePrefix("ProjectManager/api")]
     public class ProjectManagerController : ApiController
     {
         private IProjectManagerBL _ProjectManagerService;
